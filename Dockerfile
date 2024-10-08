@@ -21,6 +21,11 @@ RUN apt-get update && apt-get install -y \
     libxkbcommon0 \
     libxkbcommon-x11-0 \
     && apt-get clean
+
+# Устанавливаем переменные окружения для Qt
+ENV QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms
+ENV QT_DEBUG_PLUGINS=1
+
 # Копируем requirements.txt и устанавливаем зависимости
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
