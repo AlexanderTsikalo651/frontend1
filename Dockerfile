@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y libqt5core5a libqt5gui5 libqt5widgets5 
 RUN pip install -r requirements.txt
 COPY frontend1.py .
 # Checkout the v2.0 branch
+RUN git stash
 RUN git checkout v2.0
 
 # Set the environment variables
