@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install sip
-RUN pip install -r requirements.txt
+RUN pip install --no-binary :all: -r requirements.txt
 COPY frontend1.py .
 
 RUN apk add --no-cache libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5 qtwayland5 xvfb
