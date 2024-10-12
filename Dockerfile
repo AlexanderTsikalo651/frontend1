@@ -8,12 +8,10 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the dependencies
-# Install Qt and its dependencies
-RUN apt-get update && apt-get install -y libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5
-RUN pip install -r requirements.txt
+RUN apt-get update && apt-get install -y libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5 qtwayland5
 
-# Install Qt and its dependencies
-RUN apt-get update && apt-get install -y qt5-default
+# Install Python dependencies
+RUN pip install -r requirements.txt
 
 # Clone the Git repository
 RUN git clone https://github.com/your-repo/your-app.git .
