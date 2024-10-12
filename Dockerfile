@@ -1,13 +1,12 @@
-FROM python:3.12-alpine
+FROM python:3.12-buster
 WORKDIR /app
 
-RUN apk add --no-cache pyqt5
+RUN apt-get update && apt-get install -y qt5-default
+RUN apt-get install -y libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5 qtwayland5 xvfb
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY frontend1.py .
-
-RUN apk add --no-cache libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5 qtwayland5 xvfb
 
 ENV QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms
 ENV PYTHONPATH=/app
