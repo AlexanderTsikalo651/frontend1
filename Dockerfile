@@ -2,6 +2,7 @@ FROM python:3.12-alpine
 WORKDIR /app
 
 COPY requirements.txt .
+RUN pip install sip
 RUN pip install -r requirements.txt
 COPY frontend1.py .
 
