@@ -7,7 +7,7 @@ COPY frontend1.py .
 
 
 RUN apt-get update && apt-get install -y git
-RUN git stash
+
 RUN git checkout v2.0
 
 
