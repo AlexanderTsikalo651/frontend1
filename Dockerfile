@@ -1,8 +1,7 @@
 FROM python:3.12-slim
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y qt5-default
-RUN apt-get install -y libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5 qtwayland5 xvfb
+RUN apt-get update && apt-get install -y libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5 qtwayland5 xvfb
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
