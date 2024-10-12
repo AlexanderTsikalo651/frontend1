@@ -8,7 +8,8 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the dependencies
-RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0 libxcb-xinerama0 libxcb-xinput0
+# Install Qt and its dependencies
+RUN apt-get update && apt-get install -y libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5
 RUN pip install -r requirements.txt
 
 # Install Qt and its dependencies
