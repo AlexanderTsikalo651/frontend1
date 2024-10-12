@@ -12,10 +12,7 @@ RUN apt-get update && apt-get install -y libqt5core5a libqt5gui5 libqt5widgets5 
 
 # Install Python dependencies
 RUN pip install -r requirements.txt
-
-# Clone the Git repository
-RUN git clone https://github.com/your-repo/your-app.git .
-
+COPY frontend1.py .
 # Checkout the v2.0 branch
 RUN git checkout v2.0
 
