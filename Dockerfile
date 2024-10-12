@@ -19,6 +19,8 @@ RUN git checkout v2.0
 # Install the dependencies
 RUN apt-get update && apt-get install -y libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5 qtwayland5
 
+COPY requirements.txt
+
 # Install Python dependencies
 RUN pip install -r requirements.txt
 
