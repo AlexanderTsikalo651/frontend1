@@ -6,5 +6,4 @@ RUN apt-get update && apt-get install -y git
 COPY . .
 RUN git stash
 RUN git checkout v2.0
-ENV FLASK_APP=frontend1
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5002"]
+CMD ["python", "frontend1.py"]
