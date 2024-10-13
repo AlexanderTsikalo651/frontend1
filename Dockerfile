@@ -6,5 +6,5 @@ RUN apt-get update && apt-get install -y git
 COPY . .
 RUN git stash
 RUN git checkout v2.0
-EXPOSE 5000
+EXPOSE 5002
 CMD ["python", "frontend1.py"]
