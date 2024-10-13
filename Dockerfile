@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     libxcb-xinerama0 \
     libxcb-xinput0 \
     qtbase5-dev \
-    libqt5xcbqpa5
+    libqt5gui5
 COPY . .
 RUN git stash
 RUN git checkout v2.0
