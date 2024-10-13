@@ -7,4 +7,5 @@ COPY . .
 RUN git stash
 RUN git checkout v2.0
 EXPOSE 5002
+ENV QT_QPA_PLATFORM=xcb
 CMD ["python", "frontend1.py", "--host=0.0.0.0", "--port=5002"]
