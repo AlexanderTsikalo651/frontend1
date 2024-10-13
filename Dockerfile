@@ -20,15 +20,14 @@ RUN apt-get update && apt-get install -y \
     libxcb-xfixes0 \
     libxcb-xinerama0 \
     libxcb-xinput0 \
-    qt5-default
+    qtbase5-dev
 COPY . .
 RUN git stash
 RUN git checkout v2.0
 EXPOSE 5002
 ENV QT_QPA_PLATFORM=xcb
 ENV QT_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
-ENV QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms
-ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/qt5/lib:$LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/qt5/lib
 
 
 CMD ["python", "frontend1.py", "--host=0.0.0.0", "--port=5002"]
