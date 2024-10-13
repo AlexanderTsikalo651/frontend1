@@ -26,5 +26,6 @@ RUN git checkout v2.0
 EXPOSE 5002
 ENV QT_QPA_PLATFORM=xcb
 ENV QT_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
+ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/qt5/lib:$LD_LIBRARY_PATH
 
 CMD ["python", "frontend1.py", "--host=0.0.0.0", "--port=5002"]
