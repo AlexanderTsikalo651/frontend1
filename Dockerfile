@@ -20,14 +20,15 @@ RUN apt-get update && apt-get install -y \
     libxcb-xfixes0 \
     libxcb-xinerama0 \
     libxcb-xinput0 \
-    qtbase5-dev
+    qtbase5-dev \
+    libqt5xcbqpa5
 COPY . .
 RUN git stash
 RUN git checkout v2.0
 EXPOSE 5002
 ENV QT_QPA_PLATFORM=xcb
 ENV QT_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
-ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/qt5/lib
+ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/qt5/lib:$LD_LIBRARY_PATH
 ENV QT_DEBUG_PLUGINS=1
 
 
