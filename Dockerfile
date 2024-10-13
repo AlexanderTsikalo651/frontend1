@@ -2,7 +2,7 @@ FROM python:3.12-slim
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-RUN apt-get update && apt-get install -y git && apt-get install -y libgl1-mesa-glx  # Install the libgthread-2.0.so.0 library && apt-get install -y libglib2.0-0
+RUN apt-get update && apt-get install -y git && apt-get install -y libgl1-mesa-glx && apt-get install -y libglib2.0-0
 COPY . .
 RUN git stash
 RUN git checkout v2.0
