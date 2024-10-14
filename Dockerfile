@@ -23,10 +23,13 @@ RUN apt-get update && apt-get install -y \
     libqt5gui5 libqt5widgets5 libqt5network5 libqt5core5a libqt5dbus5 \
     git
 
-# Установка PyQt5
-RUN pip install PyQt5
+# Установка переменных окружения
 ENV QT_QPA_PLATFORM=xcb
-ENV QT_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
+ENV QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms
+ENV DISPLAY=host.docker.internal:0.0
+
+# Установка X11-клиента
+RUN apt-get update && apt-get install -y x11-apps
 
 
 COPY requirements.txt .
