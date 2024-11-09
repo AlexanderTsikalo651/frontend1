@@ -39,4 +39,4 @@ RUN chmod 600 ~/.vnc/passwd
 
 ENV USER=root
 
-CMD ["sh", "-c", "vncserver :1 -geometry 1280x800 -depth 24 && tail -f /dev/null"]
+CMD ["sh", "-c", "vncserver -kill :1 || echo 'No VNC server running'; rm -rf /tmp/.X11-unix/X1; vncserver :1 -geometry 1280x800 -depth 24 && tail -f /dev/null"]
